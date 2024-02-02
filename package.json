@@ -12,8 +12,10 @@
   "dependencies": {
     "fs-extra": "^11.2.0",
     "mime-types": "^2.1.35",
+    "node-html-parser": "^6.1.12",
     "p-queue": "^8.0.1",
-    "puppeteer": "^21.10.0"
+    "puppeteer": "^21.10.0",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",

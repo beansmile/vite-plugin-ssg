@@ -1,16 +1,22 @@
-## vite-plugin-ssg
+- [VitePluginSsg](#vitepluginssg)
+  - [Options](#vitepluginssg-options)
+  - [Nginx](#nginx)
+- [VitePluginImageSizes](#vitepluginimagesizes)
+  - [Options](#vitepluginimagesizes-options)
+
+# VitePluginSsg
 方便前端纯 vue 静态页面SEO。
 
 ```javascript
 // vite.config.js
-import vitePluginSSG from 'vite-plugin-ssg'
+import { VitePluginSSG } from 'vite-plugin-ssg'
 
 export default {
-  plugins: [vitePluginSSG()],
+  plugins: [VitePluginSSG()],
 }
 ```
 
-## Options
+## VitePluginSsg Options
 ```typescript
 export interface Options {
   /**
@@ -103,5 +109,31 @@ server{
     alias xxxx;
     try_files /ssg-templates$uri /ssg-templates$uri/index.html $uri /index.html =404;
   }
+}
+```
+
+# VitePluginImageSizes
+自动计算图片大小，给图片添加 width 和 height 属性。
+如果图片已设置 width 和 height 属性，则不会再次计算。
+
+```javascript
+// vite.config.js
+import { VitePluginImageSizes } from 'vite-plugin-ssg';
+
+export default {
+  plugins: [VitePluginImageSizes()],
+}
+```
+
+## VitePluginImageSizes Options
+
+```typescript
+export interface Options {
+  /**
+   * @default false
+   * @description 是否自动给图片添加 loading 属性
+   * @description 如图片已设置 loading 属性，则不会处理
+   */
+  lazyLoading: false ｜ 'lazy' | 'eager';
 }
 ```
